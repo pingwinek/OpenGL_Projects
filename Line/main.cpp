@@ -26,22 +26,24 @@ int main(){
 	//make the window's context current
 	glfwMakeContextCurrent(window);
 
-	GLfloat pointVertex[] =
-	{
-		SCREEN_WIDTH * 0.3, SCREEN_HIGH / 2
-	};
-
-	GLfloat pointVertex2[] =
-	{
-		SCREEN_WIDTH * 0.75, SCREEN_HIGH / 2
-	};
-
 	glViewport((GLfloat)0.0, (GLfloat)0.0, SCREEN_WIDTH, SCREEN_HIGH); // specifies the part of the window to which OpenGL will draw (in pixels), convert from normalised to pixels
 	glMatrixMode(GL_PROJECTION); // projection matrix defines the properties of the camera that views the objects in the world coordinate frame. Here you typically set the zoom factor, aspect ratio and the near and far clipping planes
 	glLoadIdentity(); // replace the current matrix with the identity matrix and starts us a fresh because matrix transforms such as glOrpho and glRotate cumulate, basically puts us at (0, 0, 0)
 	glOrtho(0, SCREEN_WIDTH, 0, SCREEN_HIGH, 0, 1); // essentially set coordinate system
 	glMatrixMode(GL_MODELVIEW); // (default matrix mode) modelview matrix defines how your objects are transformed (meaning translation, rotation and scaling) in your world
 	glLoadIdentity(); // same as above comment
+
+	GLfloat lineVertices[] =
+	{
+		200, 100, 0,
+		100, 300, 0
+	};
+
+	GLfloat lineVertices2[] =
+	{
+		300, 200, 0,
+		200, 400, 0
+	};
 
 	//loop until the user closes the window
 	while (!glfwWindowShouldClose(window)){
@@ -50,15 +52,25 @@ int main(){
 		//render the OpenGL here
 		glEnableClientState(GL_VERTEX_ARRAY);
 
-		glEnable(GL_POINT_SMOOTH);
-		glPointSize(200);
-		glVertexPointer(2, GL_FLOAT, 0, pointVertex);
-		glDrawArrays(GL_POINTS, 0, 1);
-		glDisable(GL_POINT_SMOOTH);
+		glEnable(GL_LINE_SMOOTH); // snooth line
+		glEnable(GL_LINE_STIPPLE); // stipple line
+		glPushAttrib(GL_LINE_BIT);
+		glLineWidth(5); // width line
+		glLineStipple(3, 0x00FF);
+		glVertexPointer(3, GL_FLOAT, 0, lineVertices);
+		glDrawArrays(GL_LINES, 0, 2);
+		glPopAttrib();
+		glDisable(GL_LINE_STIPPLE);
+		glDisable(GL_LINE_SMOOTH);
 
-		glPointSize(100);
-		glVertexPointer(2, GL_FLOAT, 0, pointVertex2);
-		glDrawArrays(GL_POINTS, 0, 1);
+		glEnable(GL_LINE_SMOOTH); // snooth line
+		glEnable(GL_LINE_STIPPLE); // stipple line
+		glPushAttrib(GL_LINE_BIT);
+		glVertexPointer(3, GL_FLOAT, 0, lineVertices2);
+		glDrawArrays(GL_LINES, 0, 2);
+		glPopAttrib();
+		glDisable(GL_LINE_STIPPLE);
+		glDisable(GL_LINE_SMOOTH);
 
 		glDisableClientState(GL_VERTEX_ARRAY);
 

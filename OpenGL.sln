@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Quad", "Quad\Quad.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Point", "Point\Point.vcxproj", "{1646C953-FF0D-4C70-A761-421525CCC3B5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Line", "Line\Line.vcxproj", "{A23AB98F-4686-4B61-AE4B-2B5FECE4851F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -27,6 +29,10 @@ Global
 		{1646C953-FF0D-4C70-A761-421525CCC3B5}.Debug|Win32.Build.0 = Debug|Win32
 		{1646C953-FF0D-4C70-A761-421525CCC3B5}.Release|Win32.ActiveCfg = Release|Win32
 		{1646C953-FF0D-4C70-A761-421525CCC3B5}.Release|Win32.Build.0 = Release|Win32
+		{A23AB98F-4686-4B61-AE4B-2B5FECE4851F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A23AB98F-4686-4B61-AE4B-2B5FECE4851F}.Debug|Win32.Build.0 = Debug|Win32
+		{A23AB98F-4686-4B61-AE4B-2B5FECE4851F}.Release|Win32.ActiveCfg = Release|Win32
+		{A23AB98F-4686-4B61-AE4B-2B5FECE4851F}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
