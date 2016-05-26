@@ -26,12 +26,22 @@ int main(){
 	//make the window's context current
 	glfwMakeContextCurrent(window);
 
+	GLfloat verticesTriangle[] =
+	{
+		0.0, 0.5, 0.0, //middle top corner
+		-0.5, -0.5, 0.0, //bottom left corner
+		0.5, -0.5, 0.0 //bottom right corner
+	};
+
 	//loop until the user closes the window
 	while (!glfwWindowShouldClose(window)){
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		//render the OpenGL here
 		glEnableClientState(GL_VERTEX_ARRAY);
+
+		glVertexPointer(3, GL_FLOAT, 0, verticesTriangle);
+		glDrawArrays(GL_TRIANGLES, 0, 3);
 
 		glDisableClientState(GL_VERTEX_ARRAY);
 
