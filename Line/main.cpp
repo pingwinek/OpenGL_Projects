@@ -35,14 +35,23 @@ int main(){
 
 	GLfloat lineVertices[] =
 	{
-		200, 100, 0,
-		100, 300, 0
+		250, 150, 0,
+		50, 250, 0
 	};
 
 	GLfloat lineVertices2[] =
 	{
 		300, 200, 0,
 		200, 400, 0
+	};
+
+	GLfloat lineVertices3[] =
+	{
+		200, 100, 0,
+		100, 300, 0,
+		500, 50, 0,
+		320, 100, 0,
+		10, 10, 0
 	};
 
 	//loop until the user closes the window
@@ -71,6 +80,9 @@ int main(){
 		glPopAttrib();
 		glDisable(GL_LINE_STIPPLE);
 		glDisable(GL_LINE_SMOOTH);
+
+		glVertexPointer(3, GL_FLOAT, 0, lineVertices3);
+		glDrawArrays(GL_LINE_LOOP, 0, 5); //if use "GL_LINE_STRIPE" then line will be stripped
 
 		glDisableClientState(GL_VERTEX_ARRAY);
 
