@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E733C70F-74D0-4DC6-BC50-0AD3AB6D29C3}</ProjectGuid>
+    <ProjectGuid>{C91784B9-28BC-43F9-9D53-1803EEB7D882}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Triangle</RootNamespace>
+    <RootNamespace>Polygon</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -83,12 +83,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="triangle1.cpp" />
-    <ClCompile Include="triangle2.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="triangle1.h" />
-    <ClInclude Include="triangle2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

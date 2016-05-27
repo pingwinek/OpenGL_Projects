@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Point", "Point\Point.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Line", "Line\Line.vcxproj", "{A23AB98F-4686-4B61-AE4B-2B5FECE4851F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Polygon", "Polygon\Polygon.vcxproj", "{C91784B9-28BC-43F9-9D53-1803EEB7D882}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -33,6 +35,10 @@ Global
 		{A23AB98F-4686-4B61-AE4B-2B5FECE4851F}.Debug|Win32.Build.0 = Debug|Win32
 		{A23AB98F-4686-4B61-AE4B-2B5FECE4851F}.Release|Win32.ActiveCfg = Release|Win32
 		{A23AB98F-4686-4B61-AE4B-2B5FECE4851F}.Release|Win32.Build.0 = Release|Win32
+		{C91784B9-28BC-43F9-9D53-1803EEB7D882}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C91784B9-28BC-43F9-9D53-1803EEB7D882}.Debug|Win32.Build.0 = Debug|Win32
+		{C91784B9-28BC-43F9-9D53-1803EEB7D882}.Release|Win32.ActiveCfg = Release|Win32
+		{C91784B9-28BC-43F9-9D53-1803EEB7D882}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
