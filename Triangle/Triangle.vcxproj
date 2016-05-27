@@ -85,10 +85,12 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="triangle1.cpp" />
     <ClCompile Include="triangle2.cpp" />
+    <ClCompile Include="triangle3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="triangle1.h" />
     <ClInclude Include="triangle2.h" />
+    <ClInclude Include="triangle3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
