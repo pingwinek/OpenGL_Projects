@@ -17,6 +17,7 @@ int Triangle3::drawTriangle()
 
 	glVertexPointer(3, GL_FLOAT, 0, verticesTriangle2);
 	glDrawArrays(GL_TRIANGLE_STRIP, 0, 5);
+	/*glDrawArrays(GL_TRIANGLE_FAN, 0, 5);*/ //fan triangle
 
 	glDisableClientState(GL_VERTEX_ARRAY);
 
