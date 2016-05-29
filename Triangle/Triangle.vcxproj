@@ -83,6 +83,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="circle.cpp" />
+    <ClCompile Include="hollowCircle.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="triangle1.cpp" />
     <ClCompile Include="triangle2.cpp" />
@@ -90,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="circle.h" />
+    <ClInclude Include="hollowCircle.h" />
     <ClInclude Include="triangle1.h" />
     <ClInclude Include="triangle2.h" />
     <ClInclude Include="triangle3.h" />

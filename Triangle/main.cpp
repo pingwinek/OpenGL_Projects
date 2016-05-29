@@ -6,6 +6,7 @@
 #include "triangle2.h"
 #include "triangle3.h"
 #include "circle.h"
+#include "hollowCircle.h"
 
 using namespace std;
 
@@ -66,7 +67,11 @@ int main(){
 				break;
 			case 4:
 				Circle t4;
-				t4.drawCircle(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 0, 120, 15);
+				t4.drawCircle(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 0, 200, 8);
+				break;
+			case 5:
+				HollowCircle t5;
+				t5.drawCircle(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 0, 200, 8);
 				break;
 			}
 
@@ -83,7 +88,7 @@ int main(){
 int check()
 {
 	string s;
-	cout << "Please enter value (between 1 and 4): ";
+	cout << "Please enter value (between 1 and 5): ";
 start:
 	cin >> s;
 	if (s.length() == 1)
@@ -94,10 +99,11 @@ start:
 		case '2':
 		case '3':
 		case '4':
+		case '5':
 			return s[0] - '0';
 			break;
 		default:
-			cout << "Not correct value. Please enter correct value (between 1 and 4): ";
+			cout << "Not correct value. Please enter correct value (between 1 and 5): ";
 			goto start;
 		}
 	}
