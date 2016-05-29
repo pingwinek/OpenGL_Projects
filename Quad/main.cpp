@@ -1,63 +1,103 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <string>
+#include <iostream>
+#include "quadStrip.h"
+#include "Quad.h"
 
 using namespace std;
 
 #define SCREEN_WIDTH 640
 #define SCREEN_HIGH 480
 
+int check();
+
 int main(){
 
-	GLFWwindow *window;
-
-	//initialize the GLFW
-	if (!glfwInit()){
-		return -1;
-	}
-
-	//create a windowed mode and its OpenGL Context
-	window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HIGH, "OpenGL Projects", NULL, NULL);
-
-	if (!window){
-		glfwTerminate();
-		return -1;
-	}
-
-	//make the window's context current
-	glfwMakeContextCurrent(window);
-
-	GLfloat verticesQuad[] =
+	while (true)
 	{
-		50, 300, 0.0, //top left
-		300, 300, 0.0, //top right
-		300, 50, 0.0, //bottom right
-		50, 50, 0.0 //bottom left
-	};
+		int quad = check();
 
-	glViewport((GLfloat)0.0, (GLfloat)0.0, SCREEN_WIDTH, SCREEN_HIGH);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	glOrtho(0, SCREEN_WIDTH, 0, SCREEN_HIGH, 0, 1);
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
+		GLFWwindow *window;
 
-	//loop until the user closes the window
-	while (!glfwWindowShouldClose(window)){
-		glClear(GL_COLOR_BUFFER_BIT);
+		//initialize the GLFW
+		if (!glfwInit()){
+			return -1;
+		}
 
-		//render the OpenGL here
-		glEnableClientState(GL_VERTEX_ARRAY);
+		//create a windowed mode and its OpenGL Context
+		window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HIGH, "OpenGL Projects", NULL, NULL);
 
-		glVertexPointer(3, GL_FLOAT, 0, verticesQuad);
-		glDrawArrays(GL_QUADS, 0, 4);
+		if (!window){
+			glfwTerminate();
+			return -1;
+		}
 
-		glDisableClientState(GL_VERTEX_ARRAY);
+		//make the window's context current
+		glfwMakeContextCurrent(window);
 
-		//sweap front and back buffers
-		glfwSwapBuffers(window);
+		glViewport((GLfloat)0.0, (GLfloat)0.0, SCREEN_WIDTH, SCREEN_HIGH);
+		glMatrixMode(GL_PROJECTION);
+		glLoadIdentity();
+		glOrtho(0, SCREEN_WIDTH, 0, SCREEN_HIGH, 0, 1);
+		glMatrixMode(GL_MODELVIEW);
+		glLoadIdentity();
 
-		//pool for and process events
-		glfwPollEvents();
+		//loop until the user closes the window
+		while (!glfwWindowShouldClose(window)){
+			glClear(GL_COLOR_BUFFER_BIT);
+
+			//render the OpenGL here
+			glEnableClientState(GL_VERTEX_ARRAY);
+
+			switch (quad)
+			{
+			case 1:
+				Quad q1;
+				q1.drawQuad();
+				break;
+			case 2:
+				QuadStrip q2;
+				q2.drawQuad();
+				break;
+			}
+
+			glDisableClientState(GL_VERTEX_ARRAY);
+
+			//sweap front and back buffers
+			glfwSwapBuffers(window);
+
+			//pool for and process events
+			glfwPollEvents();
+		}
+		glfwTerminate();
 	}
-	glfwTerminate();
+}
+
+int check()
+{
+	string s;
+	cout << "Please enter value (1 or 2): ";
+start:
+	cin >> s;
+	if (s.length() == 1)
+	{
+		switch (s[0])
+		{
+		case '1':
+		case '2':
+			return s[0] - '0';
+			break;
+		default:
+			cout << "Not correct value. Please enter correct value (1 or 2): ";
+			goto start;
+		}
+	}
+	else{
+
+		cout << "Not correct value. Please enter correct value (1 or 2): ";
+		goto start;
+	}
+
+	return 0;
 }

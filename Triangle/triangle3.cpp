@@ -1,16 +1,16 @@
 #include "triangle3.h"
 
-GLfloat verticesTriangle2[] =
-{
-	20, 100, 0,
-	100, 300, 0,
-	500, 50, 0,
-	500, 450, 0,
-	600, 320, 0
-};
-
 int Triangle3::drawTriangle()
 {
+	GLfloat verticesTriangle2[] =
+	{
+		20, 100, 0,
+		100, 300, 0,
+		500, 50, 0,
+		500, 450, 0,
+		600, 320, 0
+	};
+
 	glClear(GL_COLOR_BUFFER_BIT);
 	//render the OpenGL here
 	glEnableClientState(GL_VERTEX_ARRAY);
