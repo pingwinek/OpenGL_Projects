@@ -11,6 +11,7 @@ using namespace std;
 #define SCREEN_HIGH 480
 
 int check();
+void keyCallback(GLFWwindow *window, int key, int scancode, int action, int mods);
 
 int main(){
 
@@ -28,6 +29,12 @@ int main(){
 		//create a windowed mode and its OpenGL Context
 		window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HIGH, "OpenGL Projects", NULL, NULL);
 
+		glfwSetKeyCallback(window, keyCallback);
+		glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
+		
+		int width, height;
+		glfwGetFramebufferSize(window, &width, &height);
+
 		if (!window){
 			glfwTerminate();
 			return -1;
@@ -36,7 +43,7 @@ int main(){
 		//make the window's context current
 		glfwMakeContextCurrent(window);
 
-		glViewport((GLfloat)0.0, (GLfloat)0.0, SCREEN_WIDTH, SCREEN_HIGH);
+		glViewport((GLfloat)0.0, (GLfloat)0.0, width, height);
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		glOrtho(0, SCREEN_WIDTH, 0, SCREEN_HIGH, 0, 1);
@@ -100,4 +107,26 @@ start:
 	}
 
 	return 0;
+}
+
+void keyCallback(GLFWwindow *window, int key, int scancode, int action, int mods){
+
+	cout << key << endl;
+
+	if (key == GLFW_KEY_SPACE){
+		switch (action)
+		{
+		case GLFW_PRESS:
+			cout << "Space is pressed" << endl;
+			break;
+		case GLFW_REPEAT:
+			cout << "Space is repeat" << endl;
+			break;
+		case GLFW_RELEASE:
+			cout << "Space is release" << endl;
+			break;
+		default:
+			break;
+		}
+	}
 }
