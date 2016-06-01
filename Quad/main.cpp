@@ -12,6 +12,8 @@ using namespace std;
 
 int check();
 void keyCallback(GLFWwindow *window, int key, int scancode, int action, int mods);
+void characterCallback(GLFWwindow *window, unsigned int keyCode);
+void characterModCallback(GLFWwindow *window, unsigned int keyCode, int modifierKey);
 
 int main(){
 
@@ -29,8 +31,12 @@ int main(){
 		//create a windowed mode and its OpenGL Context
 		window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HIGH, "OpenGL Projects", NULL, NULL);
 
-		glfwSetKeyCallback(window, keyCallback);
-		glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
+		//glfwSetCharCallback(window, characterCallback);
+		//glfwSetKeyCallback(window, keyCallback);
+		//glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
+
+		glfwSetCharCallback(window, characterCallback);
+		//glfwSetCharModsCallback(window, characterModCallback);
 		
 		int width, height;
 		glfwGetFramebufferSize(window, &width, &height);
@@ -128,5 +134,20 @@ void keyCallback(GLFWwindow *window, int key, int scancode, int action, int mods
 		default:
 			break;
 		}
+	}
+}
+
+void characterCallback(GLFWwindow *window, unsigned int keyCode){
+
+	std::cout << keyCode << std::endl;
+}
+
+void characterModCallback(GLFWwindow *window, unsigned int keyCode, int modifierKey){
+
+	std::cout << keyCode << " : " << modifierKey << std::endl;
+
+	if (modifierKey == 1)
+	{
+		std::cout << "Shift key pressed aswell" << std::endl;
 	}
 }
